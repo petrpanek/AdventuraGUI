@@ -35,14 +35,14 @@ public class HerniPlan extends Observable {
      */
     private void zalozProstoryHry() {
         // vytvářejí se jednotlivé prostory
-        Prostor vchod = new Prostor("vchod","vchod do jeskyně");
-        Prostor veznice = new Prostor("věznice", "věznice, ve které se nachází trpaslík");
-        Prostor jeskyne = new Prostor("jeskyně","jeskyně, kde se nachází nepřítel, který střeží luk");
-        Prostor rozcesti = new Prostor("rozcestí","rozcestí, které umožňuje jít buď do první nebo druhé síně a zpět do jeskyně");
-        Prostor chodba = new Prostor("chodba","chodba, ze které lze jít buď do stoky nebo první sině a zpět do jeskyně");
-        Prostor stoka = new Prostor("stoka","stoka, ve které se nachází meč");
-        Prostor prvniSin = new Prostor("prvniSin","první síň, kde se nachází nepřítel");
-        Prostor druhaSin = new Prostor("druhaSin","druhá síň, kde se nachází nepřítel");
+        Prostor vchod = new Prostor("vchod","vchod do jeskyně", 263, 215);
+        Prostor veznice = new Prostor("věznice", "věznice, ve které se nachází trpaslík", 257, 141);
+        Prostor jeskyne = new Prostor("jeskyně","jeskyně, kde se nachází nepřítel, který střeží luk", 135, 135);
+        Prostor rozcesti = new Prostor("rozcestí","rozcestí, které umožňuje jít buď do první nebo druhé síně a zpět do jeskyně", 14, 135);
+        Prostor chodba = new Prostor("chodba","chodba, ze které lze jít buď do stoky nebo první sině a zpět do jeskyně", 135, 57);
+        Prostor stoka = new Prostor("stoka","stoka, ve které se nachází meč", 145, -8);
+        Prostor prvniSin = new Prostor("prvniSin","první síň, kde se nachází nepřítel", 14, 57);
+        Prostor druhaSin = new Prostor("druhaSin","druhá síň, kde se nachází nepřítel", 14, 215);
         
         // přiřazují se průchody mezi prostory (sousedící prostory)
         vchod.setVychod(veznice);

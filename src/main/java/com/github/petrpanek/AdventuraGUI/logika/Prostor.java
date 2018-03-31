@@ -30,6 +30,9 @@ public class Prostor extends Observable {
     private String nazev;
     private String popis;
     private Set<Prostor> vychody;   // obsahuje sousední místnosti
+    
+    private double x;
+    private double y;
 
     /**
      * Vytvoření prostoru se zadaným popisem, např. "kuchyň", "hala", "trávník
@@ -39,12 +42,14 @@ public class Prostor extends Observable {
      * víceslovný název bez mezer.
      * @param popis Popis prostoru.
      */
-    public Prostor(String nazev, String popis) {
+    public Prostor(String nazev, String popis, double x, double y) {
         this.nazev = nazev;
         this.popis = popis;
         vychody = new HashSet<>();
         seznamVeci = new ArrayList<>();
         seznamPostav = new ArrayList<>();
+        this.x = x;
+        this.y = y;
     }
 
     /**
@@ -323,6 +328,22 @@ public class Prostor extends Observable {
 	@Override
 	public String toString() {
 		return getNazev();
+	}
+
+	public double getX() {
+		return x;
+	}
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public void setY(double y) {
+		this.y = y;
 	}
     
 }

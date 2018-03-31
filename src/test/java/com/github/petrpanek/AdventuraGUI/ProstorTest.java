@@ -52,8 +52,8 @@ public class ProstorTest
      */
     @Test
     public  void testLzeProjit() {		
-        Prostor prostor1 = new Prostor("jeskyne", "temna jeskyne");
-        Prostor prostor2 = new Prostor("veznice", "temna veznice");
+        Prostor prostor1 = new Prostor("jeskyne", "temna jeskyne", 1, 2);
+        Prostor prostor2 = new Prostor("veznice", "temna veznice", 3, 4);
         
         prostor1.setVychod(prostor2);
         prostor2.setVychod(prostor1);
@@ -68,7 +68,7 @@ public class ProstorTest
      */
     @Test
     public void testVeci() {
-    		Prostor prostor = new Prostor("jeskyne", "temna jeskyne");
+    		Prostor prostor = new Prostor("jeskyne", "temna jeskyne", 1, 2);
     		Vec jablko = new Vec("jablko", true);
     		Vec truhla = new Vec("truhla", false);
     		
@@ -85,7 +85,7 @@ public class ProstorTest
      */
     @Test
     public void testPostav() {
-    		Prostor prostor = new Prostor("jeskyne", "temna jeskyne");
+    		Prostor prostor = new Prostor("jeskyne", "temna jeskyne", 1, 2);
     		Postava lupic = new Postava("lupic");
     		Postava trpaslik = new Postava("trpaslik", "ahoj");
     	

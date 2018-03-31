@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 public class HomeController extends GridPane implements Observer {
@@ -20,6 +21,7 @@ public class HomeController extends GridPane implements Observer {
 	@FXML private ListView<Vec> seznamVeciMistnost;
 	@FXML private ListView<Vec> seznamVeciBatoh;
 	@FXML private ListView<Prostor> seznamVychodu;
+	@FXML private ImageView postava;
 	
 	private IHra hra;
 	
@@ -55,6 +57,9 @@ public class HomeController extends GridPane implements Observer {
 		seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
 		seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychody());
 		
+		postava.setX(hra.getHerniPlan().getAktualniProstor().getX());
+		postava.setY(hra.getHerniPlan().getAktualniProstor().getY());
+		
 		hra.getHerniPlan().addObserver(this);
 		hra.getHerniPlan().getBatoh().addObserver(this);
 		hra.getHerniPlan().getAktualniProstor().addObserver(this);
@@ -71,7 +76,8 @@ public class HomeController extends GridPane implements Observer {
 		seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
 		seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychody());
 		
-		
+		postava.setX(hra.getHerniPlan().getAktualniProstor().getX());
+		postava.setY(hra.getHerniPlan().getAktualniProstor().getY());
 	}
  
 }
