@@ -41,7 +41,8 @@ public class Application extends javafx.application.Application {
 	        loader.setLocation(getClass().getResource("Home.fxml"));
 	        Parent root = loader.load();
 	        
-	        HomeController c = loader.getController();
+	        HomeController controller = loader.getController();
+	        controller.inicializuj(new Hra());
 	        
 	        primaryStage.setTitle("Adventura");
 	        primaryStage.setScene(new Scene(root));

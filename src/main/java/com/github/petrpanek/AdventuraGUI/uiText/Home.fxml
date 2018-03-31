@@ -55,7 +55,7 @@
       <VBox GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
             <Label text="Obsah batohu" />
-            <ListView prefHeight="200.0" prefWidth="200.0">
+            <ListView fx:id="seznamVeciBatoh" prefHeight="200.0" prefWidth="200.0">
                <contextMenu>
                   <ContextMenu>
                     <items>
@@ -72,8 +72,8 @@
       </VBox>
       <VBox GridPane.rowIndex="2">
          <children>
-            <Label text="Postavy" />
-            <ListView prefHeight="200.0" prefWidth="200.0">
+            <Label text="Východy" />
+            <ListView fx:id="seznamVychodu" prefHeight="200.0" prefWidth="200.0">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -86,7 +86,7 @@
       <VBox GridPane.columnIndex="2" GridPane.rowIndex="2">
          <children>
             <Label text="Věci v místnosti" />
-            <ListView prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="seznamVeciMistnost" prefHeight="200.0" prefWidth="200.0" />
          </children>
          <GridPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -102,7 +102,7 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </GridPane.margin>
       </VBox>
-      <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
+      <TextArea fx:id="vystup" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </GridPane.margin>

@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Observable;
 
 
 /**
@@ -21,7 +22,7 @@ import java.util.stream.Collectors;
  * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova
  * @version pro školní rok 2016/2017
  */
-public class Prostor {
+public class Prostor extends Observable {
 	
 	private List<Vec> seznamVeci;
 	private List<Postava> seznamPostav;
@@ -210,6 +211,15 @@ public class Prostor {
     }
     
     /**
+     * Metoda vraci seznam veci v mistnosti
+     * 
+     * @return Kolekce veci obsazenych v prostoru.
+     */
+    public Collection<Vec> getVeci() {
+    	return Collections.unmodifiableCollection(seznamVeci);
+    }
+    
+    /**
      * Metoda zkontroluje zdali se vec opravdu vyskytuje v danem prostoru
      * 
      * @param vec kterou chceme overit
@@ -231,7 +241,9 @@ public class Prostor {
      * @param vec - vec kterou chceme vlozit
      */
     public void vlozVec(Vec vec) {
-    		seznamVeci.add(vec);
+    		seznamVeci.add(vec);  
+    		setChanged();
+    		notifyObservers();
     }
     
     /**
@@ -307,6 +319,10 @@ public class Prostor {
     			}
     		}
     }
-    
+
+	@Override
+	public String toString() {
+		return getNazev();
+	}
     
 }

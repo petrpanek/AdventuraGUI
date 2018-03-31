@@ -44,7 +44,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>com.github.petrpanek.AdventuraGUI.main.Start</mainClass>
+							<mainClass>com.github.petrpanek.AdventuraGUI.uiText.Application</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

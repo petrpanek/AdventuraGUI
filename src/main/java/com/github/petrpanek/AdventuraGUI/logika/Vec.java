@@ -40,5 +40,8 @@ public class Vec {
 		return prenositelnost;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return getNazev();
+	}
 }

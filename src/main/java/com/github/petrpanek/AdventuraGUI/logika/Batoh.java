@@ -1,7 +1,10 @@
 package com.github.petrpanek.AdventuraGUI.logika;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Observable;
 
 /**
  * Trida Batoh implementuje rozhrani pro batoh ve hre
@@ -10,7 +13,7 @@ import java.util.List;
  * @version pro skolni rok 2017/2018
  */
 
-public class Batoh {
+public class Batoh extends Observable {
 	
 	private List<Vec> batoh;
 	private static final int KAPACITA = 7;
@@ -36,6 +39,15 @@ public class Batoh {
 		}
 		return false;
 	}
+	
+	/**
+     * Metoda vraci seznam veci v batohu
+     * 
+     * @return Kolekce veci obsazenych v batohu.
+     */
+	public Collection<Vec> getVeci() {
+    	return Collections.unmodifiableCollection(batoh);
+    }
 	
 	/**
 	 * Metoda zjistujici obsah batohu
@@ -78,6 +90,10 @@ public class Batoh {
 	public boolean vlozDoBatohu(Vec item) {
 		if (vejdeSe() && item.getPrenositelnost()) {
 			batoh.add(item);
+			
+			setChanged();
+			notifyObservers();
+			
 			return true;
 		}
 		
@@ -96,6 +112,10 @@ public class Batoh {
 			if (item.getNazev().equals(nazev)) {
 				kVyhozeni = item;
 				batoh.remove(item);
+				
+				setChanged();
+				notifyObservers();
+				
 				break;
 			}
 		}
