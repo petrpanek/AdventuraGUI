@@ -22,6 +22,13 @@ import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.collections.ObservableList;
 
+/**
+ * Class HomeController
+ * 
+ * Trida obsluhujici graficke zmeny aplikace  
+ * 
+ * @author Petr Panek
+ */
 public class HomeController extends GridPane implements Observer {
 	
 	@FXML private TextField vstupniText;

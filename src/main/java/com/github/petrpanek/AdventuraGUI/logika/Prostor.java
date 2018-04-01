@@ -324,24 +324,44 @@ public class Prostor extends Observable {
     			}
     		}
     }
-
+    
+    /**
+     * Metoda vraci nazev prostoru
+     * 
+     * @return nazev prostoru
+     */
 	@Override
 	public String toString() {
 		return getNazev();
 	}
 
+	/**
+	 * Getter pro souradnici X
+	 * @return souradnici X
+	 */
 	public double getX() {
 		return x;
 	}
 
+	/**
+	 * Setter pro souradnici X
+	 */
 	public void setX(double x) {
 		this.x = x;
 	}
 
+	/**
+	 * Getter pro souradnici Y
+	 * @return souradnici Y
+	 */
 	public double getY() {
 		return y;
 	}
 
+	/**
+	 * Setter pro souradnici Y
+	 * @return souradnici Y
+	 */
 	public void setY(double y) {
 		this.y = y;
 	}

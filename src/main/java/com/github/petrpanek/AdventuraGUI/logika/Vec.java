@@ -17,6 +17,7 @@ public class Vec {
 	 * 
 	 * @param nazev - nazev veci
 	 * @param prenositelnost - True/False zdali je dana vec prenositelna
+	 * @param nazevObrazku - nazev obrazku predmetu
 	 */
 	public Vec(String nazev, boolean prenositelnost, String nazevObrazku) {
 		this.nazev = nazev;
@@ -51,6 +52,11 @@ public class Vec {
 		return prenositelnost;
 	}
 	
+	/**
+	 * Metoda vracejici nazev predmetu
+	 * 
+	 * @return nazev predmetu
+	 */
 	@Override
 	public String toString() {
 		return getNazev();

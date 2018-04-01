@@ -9,6 +9,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Class Application
+ * 
+ * Trida starajici se o spusteni aplikace
+ * 
+ * @author Petr Panek
+ */
 public class Application extends javafx.application.Application {
 	
 	/**
