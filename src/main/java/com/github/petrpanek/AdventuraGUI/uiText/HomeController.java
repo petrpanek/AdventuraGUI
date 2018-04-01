@@ -63,6 +63,7 @@ public class HomeController extends GridPane implements Observer {
 	 */
 	public void inicializuj(IHra hra) {
 		vystup.setText(hra.vratUvitani());
+		vstupniText.setEditable(true);
 		vystup.setEditable(false);
 		this.hra = hra;
 		
@@ -100,19 +101,19 @@ public class HomeController extends GridPane implements Observer {
 		
 		Collection<Vec> obsahBatohu = hra.getHerniPlan().getBatoh().getVeci();
 		for (Vec item : obsahBatohu) {
-			ImageView picture = new ImageView(new Image(com.github.petrpanek.AdventuraGUI.uiText.Application.class.getResourceAsStream("/sources/" + item.getNazevObrazku()), 100, 100, true, false));
+			ImageView picture = new ImageView(new Image(getClass().getResourceAsStream("/resources/" + item.getNazevObrazku()), 100, 100, true, false));
 			veciBatoh.add(picture);
 		}
 		
 		Collection<Vec> obsahMistnosti = hra.getHerniPlan().getAktualniProstor().getVeci();
 		for (Vec item : obsahMistnosti) {
-			ImageView picture = new ImageView(new Image(com.github.petrpanek.AdventuraGUI.uiText.Application.class.getResourceAsStream("/sources/" + item.getNazevObrazku()), 100, 100, true, false));
+			ImageView picture = new ImageView(new Image(getClass().getResourceAsStream("/resources/" + item.getNazevObrazku()), 100, 100, true, false));
 			veciMistnost.add(picture);
 		}
 	}
 	
 	/**
-	 * Metoda pro vycisteni seznamu v rozhrani
+	 * Metoda pro vycisteni seznamu veci
 	 */
 	private void vycistiSeznamy() {
 		veciMistnost.clear();
@@ -128,6 +129,14 @@ public class HomeController extends GridPane implements Observer {
 	}
 	
 	/**
+	 * Metoda pro ukonceni stavajici hry
+	 */
+	@FXML public void endGame() {
+		vstupniText.setText("konec");
+		odesliPrikaz();
+	}
+	
+	/**
 	 * Metoda pro zobrazeni napovedy
 	 */
 	@FXML public void help() {
@@ -135,7 +144,7 @@ public class HomeController extends GridPane implements Observer {
 		help.setTitle("Nápověda");
 		
 		WebView webView = new WebView();
-		webView.getEngine().load(com.github.petrpanek.AdventuraGUI.uiText.Application.class.getResource("/sources/napoveda.html").toExternalForm());
+		webView.getEngine().load(getClass().getResource("/resources/napoveda.html").toExternalForm());
         
         help.setScene(new Scene(webView, 1200, 850));
         help.show();
