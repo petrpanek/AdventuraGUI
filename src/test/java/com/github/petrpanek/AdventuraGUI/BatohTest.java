@@ -45,7 +45,7 @@ public class BatohTest {
     @Test
     public void testVlozeniVeci() {
     		Batoh batoh = new Batoh();
-    		Vec vec = new Vec("mec", true);
+    		Vec vec = new Vec("mec", true, "sword.png");
     		batoh.vlozDoBatohu(vec);
     		assertEquals(true, batoh.obsahujeVec("mec"));
     }
@@ -56,7 +56,7 @@ public class BatohTest {
     @Test
     public void testVyhozeniVeci() {
     		Batoh batoh = new Batoh();
-    		Vec vec = new Vec("mec", true);
+    		Vec vec = new Vec("mec", true, "sword.png");
     		batoh.vlozDoBatohu(vec);
     		assertEquals(vec, batoh.vyhodZBatohu("mec"));
     }
@@ -67,7 +67,7 @@ public class BatohTest {
     @Test
     public void testVlozNeprenositelnouVec() {
     		Batoh batoh = new Batoh();
-    		Vec vec = new Vec("truhla", false);
+    		Vec vec = new Vec("truhla", false, "chest.png");
     		batoh.vlozDoBatohu(vec);
     		assertEquals(false, batoh.obsahujeVec("truhla"));
     }
@@ -78,14 +78,14 @@ public class BatohTest {
     @Test
     public void testKapacityBatohu() {
     		Batoh batoh = new Batoh();
-    		Vec vec1 = new Vec("vec1", true);
-    		Vec vec2 = new Vec("vec2", true);
-    		Vec vec3 = new Vec("vec3", true);
-    		Vec vec4 = new Vec("vec4", true);
-    		Vec vec5 = new Vec("vec5", true);
-    		Vec vec6 = new Vec("vec6", true);
-    		Vec vec7 = new Vec("vec7", true);
-    		Vec vec8 = new Vec("vec8", true);
+    		Vec vec1 = new Vec("vec1", true, "ahoj");
+    		Vec vec2 = new Vec("vec2", true, "ahoj");
+    		Vec vec3 = new Vec("vec3", true, "ahoj");
+    		Vec vec4 = new Vec("vec4", true, "ahoj");
+    		Vec vec5 = new Vec("vec5", true, "ahoj");
+    		Vec vec6 = new Vec("vec6", true, "ahoj");
+    		Vec vec7 = new Vec("vec7", true, "ahoj");
+    		Vec vec8 = new Vec("vec8", true, "ahoj");
     		
     		assertEquals(true, batoh.vejdeSe());
     		batoh.vlozDoBatohu(vec1);

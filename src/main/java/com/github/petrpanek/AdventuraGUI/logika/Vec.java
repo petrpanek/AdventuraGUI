@@ -10,6 +10,7 @@ public class Vec {
 	
 	private String nazev;
 	private boolean prenositelnost;
+	private String nazevObrazku;
 	
 	/**
 	 * Konstruktor tridy Vec
@@ -17,9 +18,10 @@ public class Vec {
 	 * @param nazev - nazev veci
 	 * @param prenositelnost - True/False zdali je dana vec prenositelna
 	 */
-	public Vec(String nazev, boolean prenositelnost) {
+	public Vec(String nazev, boolean prenositelnost, String nazevObrazku) {
 		this.nazev = nazev;
 		this.prenositelnost = prenositelnost;
+		this.nazevObrazku = nazevObrazku;
 	}
 	
 	/**
@@ -29,6 +31,15 @@ public class Vec {
 	 */
 	public String getNazev() {
 		return this.nazev;
+	}
+	
+	/**
+	 * Getter nazvu obrazku
+	 * 
+	 * @return nazev obrazku
+	 */
+	public String getNazevObrazku() {
+		return this.nazevObrazku;
 	}
 	
 	/**

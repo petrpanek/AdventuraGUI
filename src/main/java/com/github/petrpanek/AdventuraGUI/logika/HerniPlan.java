@@ -65,13 +65,13 @@ public class HerniPlan extends Observable {
         aktualniProstor = vchod;  // hra začíná u vchodu do jeskyně
         
        // vytvareji se jednotlive predmety
-        Vec jablko = new Vec("jablko", true);
-        Vec hruska = new Vec("hruska", true);
-        Vec luk = new Vec("luk", true);
-        Vec truhla = new Vec("truhla", false);
-        Vec prsten = new Vec("prsten", true);
-        Vec mecStoka = new Vec("medenyMec", true);
-        Vec mecNepritel = new Vec("zlatyMec", true);
+        Vec jablko = new Vec("jablko", true, "apple.png");
+        Vec hruska = new Vec("hruska", true, "pear.png");
+        Vec luk = new Vec("luk", true, "bow.png");
+        Vec truhla = new Vec("truhla", false, "chest.png");
+        Vec prsten = new Vec("prsten", true, "ring.png");
+        Vec mecStoka = new Vec("medenyMec", true, "sword.png");
+        Vec mecNepritel = new Vec("zlatyMec", true, "enemySword.png");
         
         // vlozeni predmetu do jednotlivych mistnosti
         veznice.vlozVec(jablko);

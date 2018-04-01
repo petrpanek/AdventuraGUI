@@ -69,8 +69,8 @@ public class ProstorTest
     @Test
     public void testVeci() {
     		Prostor prostor = new Prostor("jeskyne", "temna jeskyne", 1, 2);
-    		Vec jablko = new Vec("jablko", true);
-    		Vec truhla = new Vec("truhla", false);
+    		Vec jablko = new Vec("jablko", true, "apple.png");
+    		Vec truhla = new Vec("truhla", false, "chest.png");
     		
     		prostor.vlozVec(jablko);
     		prostor.vlozVec(truhla);

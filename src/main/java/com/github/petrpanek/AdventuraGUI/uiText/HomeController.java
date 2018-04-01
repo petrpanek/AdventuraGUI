@@ -5,27 +5,35 @@ import com.github.petrpanek.AdventuraGUI.logika.Hra;
 import com.github.petrpanek.AdventuraGUI.logika.Vec;
 import com.github.petrpanek.AdventuraGUI.logika.Prostor;
 
+import java.util.Collection;
 import java.util.Observable;
 import java.util.Observer;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import javafx.collections.ObservableList;
 
 public class HomeController extends GridPane implements Observer {
 	
 	@FXML private TextField vstupniText;
 	@FXML private TextArea vystup;
-	@FXML private ListView<Vec> seznamVeciMistnost;
-	@FXML private ListView<Vec> seznamVeciBatoh;
+	@FXML private ListView<Object> seznamVeciMistnost;
+	@FXML private ListView<Object> seznamVeciBatoh;
 	@FXML private ListView<Prostor> seznamVychodu;
 	@FXML private ImageView postava;
+	
+	private ObservableList<Object> veciMistnost = FXCollections.observableArrayList();
+	private ObservableList<Object> veciBatoh = FXCollections.observableArrayList();
+	private ObservableList<Prostor> vychody = FXCollections.observableArrayList();
 	
 	private IHra hra;
 	
@@ -60,8 +68,11 @@ public class HomeController extends GridPane implements Observer {
 		
 		vycistiSeznamy();
 		
-		seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
-		seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychody());
+		vychody.addAll(hra.getHerniPlan().getAktualniProstor().getVychody());
+		
+		seznamVeciMistnost.setItems(veciMistnost);
+		seznamVeciBatoh.setItems(veciBatoh);
+		seznamVychodu.setItems(vychody);
 		
 		postava.setX(hra.getHerniPlan().getAktualniProstor().getX());
 		postava.setY(hra.getHerniPlan().getAktualniProstor().getY());
@@ -69,6 +80,7 @@ public class HomeController extends GridPane implements Observer {
 		hra.getHerniPlan().addObserver(this);
 		hra.getHerniPlan().getBatoh().addObserver(this);
 		hra.getHerniPlan().getAktualniProstor().addObserver(this);
+		
 	}
 
 	/**
@@ -81,21 +93,31 @@ public class HomeController extends GridPane implements Observer {
 		// TODO Auto-generated method stub
 		vycistiSeznamy();
 		
-		seznamVeciBatoh.getItems().addAll(hra.getHerniPlan().getBatoh().getVeci());
-		seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
-		seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychody());
-		
 		postava.setX(hra.getHerniPlan().getAktualniProstor().getX());
 		postava.setY(hra.getHerniPlan().getAktualniProstor().getY());
+		
+		vychody.addAll(hra.getHerniPlan().getAktualniProstor().getVychody());
+		
+		Collection<Vec> obsahBatohu = hra.getHerniPlan().getBatoh().getVeci();
+		for (Vec item : obsahBatohu) {
+			ImageView picture = new ImageView(new Image(com.github.petrpanek.AdventuraGUI.uiText.Application.class.getResourceAsStream("/sources/" + item.getNazevObrazku()), 100, 100, true, false));
+			veciBatoh.add(picture);
+		}
+		
+		Collection<Vec> obsahMistnosti = hra.getHerniPlan().getAktualniProstor().getVeci();
+		for (Vec item : obsahMistnosti) {
+			ImageView picture = new ImageView(new Image(com.github.petrpanek.AdventuraGUI.uiText.Application.class.getResourceAsStream("/sources/" + item.getNazevObrazku()), 100, 100, true, false));
+			veciMistnost.add(picture);
+		}
 	}
 	
 	/**
 	 * Metoda pro vycisteni seznamu v rozhrani
 	 */
 	private void vycistiSeznamy() {
-		seznamVeciMistnost.getItems().clear();
-		seznamVychodu.getItems().clear();
-		seznamVeciBatoh.getItems().clear();
+		veciMistnost.clear();
+		veciBatoh.clear();
+		vychody.clear();
 	}
 	
 	/**
